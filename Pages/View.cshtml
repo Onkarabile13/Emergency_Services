@@ -1,0 +1,109 @@
+﻿@page
+@model Emergency_Services.Pages.ViewModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Page</title>
+
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 50%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">All View</h1>
+    <hr>
+    <div class="row">
+        <a href="/View" class="btn btn-primary">Refresh</a>
+
+    </div>
+    <br>
+    <div class="wrapper" style="background: aliceblue;">
+
+        <table class="table">
+            <caption>Public Page Records</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Col</th>
+                    <th scope="col">Submitted-Date</th>
+                    <th scope="col">End-Date</th>
+                    <th scope="col">Location-Name</th>
+                    <th scope="col">Disaster-Description</th>
+                    <th scope="col">Required Aid</th>
+                    <th scope="col">Status</th>
+                    <th style="color: orange;" scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int val = 0;
+                }
+                @foreach (var j in Model.getAll)
+                {
+                    <tr>
+                        <th scope="row">@j.Id</th>
+                        <td>@j.disasterStartDate</td>
+                        <td>@j.disasterStartDate</td>
+                        <td>@j.disasterLocation</td>
+                        <td>@j.disasterDescription</td>
+                        <td>@j.goodsSelection</td>
+                        <td>Disaster is Active</td>
+                    </tr>
+                    val++;
+                }
+
+                <tr>
+                    <td style="color: orange;" colspan="7">Number of Disaster</td>
+                    <td>
+                        @if (TempData["tempMoney3"] != null)
+                        {
+                             @TempData["tempMoney3"];
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: orange;" colspan="7">Number of Goods </td>
+                    <td>
+                        @if (TempData["tempMoney2"] != null)
+                        {
+                            @TempData["tempMoney2"];
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: orange;"  colspan="7">Money Balance </td>
+                    <td>
+                       R @if (TempData["tempMoney"]!=null)
+                        {
+                            @TempData["tempMoney"];
+                        }.00
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

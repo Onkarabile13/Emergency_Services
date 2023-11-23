@@ -1,0 +1,111 @@
+﻿@page
+@model Emergency_Services.Pages.ShowDisasterRecordsModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Page</title>
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 80%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Capture Disaster</h1>
+    <hr>
+    <div class="row">
+        <a href="/DisasterController" class="btn btn-primary">Back</a>
+    </div>
+    <br>
+    <br>
+    @if (TempData["disaster"] != null)
+    {
+        <script>alert('@TempData["disaster"]');</script>
+    }
+    <div class="wrapper" style="background: aliceblue;">
+        <div class="inner">
+
+            <form method="POST">
+
+                <div class="input-group">
+                    <label for="date">Disaster-start-date&emsp;</label>
+                    <input type="date" class="form-control" name="disasterStartDate" id="disasterStartDate" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Disaster-end-date&emsp;</label>
+                    <input type="date" class="form-control" name="disasterEndDate" id="disasterEndDate" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Disaster-Location&emsp;</label>
+                    <input type="text" class="form-control" name="disasterLocation" id="disasterLocation" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Disaster-Description&emsp;</label>
+                    <input type="text" class="form-control" name="disasterDescription" id="disasterDescription" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <div class="input-group">
+                        <label for="date">Aid-Required-For-Disaster&emsp;</label>
+                        <select class="form-control" name="goodsSelection" id="goodsSelection">
+                            <option value="food_water">Food and Water</option>
+                            <option value="shelter_clothing">Shelter and Clothing</option>
+                            <option value="medical_supplies">Medical Supplies</option>
+                            <option value="communication">Communication</option>
+                            <option value="rescue_recovery">Rescue and Recovery Equipment</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="personal_items">Personal Items</option>
+                            <option value="child_infant_care">Child and Infant Care</option>
+                            <option value="pet_supplies">Pet Supplies</option>
+                            <option value="cash_donations">Cash Donations</option>
+                            <option value="volunteer_support">Volunteer Support</option>
+                            <option value="psychosocial_support">Psychosocial Support</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="status">I want to remain anonymous.&emsp;</label>
+                    <select class="form-control" name="status" id="status" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="reset">Reset</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

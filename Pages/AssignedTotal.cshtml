@@ -1,0 +1,74 @@
+﻿@page
+@model Emergency_Services.Pages.AssignedTotalModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary Page</title>
+
+    <style>
+        .main-heading {
+            margin-left: 50px;
+        }
+
+        .wrapper {
+            width: 95%;
+            margin-left: 50px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 70%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">assigned Summary </h1>
+    <hr>
+    <div class="row">
+        <a href="/Item" class="btn btn-primary">All assigned items.</a>&emsp;&emsp; <a href="/AssignedTotal" class="btn btn-primary">All assigned money.</a>
+    </div>
+    <br>
+    <div class="wrapper" style="background: aliceblue;">
+
+        <table class="table">
+            <caption>money Records</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    double val =0.0;
+                }
+                @foreach (var j in Model.getGoods)
+                {
+                    <tr>
+                        <th scope="row">@j.Id</th>
+                        <td>@j.totalDonation</td>
+                    </tr>
+                    val=j.tot;
+                }
+
+                <tr>
+                    <td colspan="1">total</td>
+                    <td>@val</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

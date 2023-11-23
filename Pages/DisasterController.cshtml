@@ -1,0 +1,85 @@
+﻿@page
+@model Emergency_Services.Pages.DisasterControllerModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Page</title>
+
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 50%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+    
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Disaster Records</h1>
+    <hr>
+    <div class="row">
+        <a href="/CaptureDisasterRecords" class="btn btn-primary">Create New Goods</a>
+  
+    </div>
+    <br>
+        <div class="wrapper" style="background: aliceblue;">
+
+        <table class="table">
+            <caption>Disaster Records</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Submitted-Date</th>
+                    <th scope="col">End-Date</th>
+                    <th scope="col">Location-Name</th>
+                    <th scope="col">Disaster-Description</th>
+                    <th scope="col">Required Aid</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int val = 1;
+                }
+                @foreach(var j in Model.getGoods)
+                {
+                    <tr>
+                        <th scope="row">@j.Id</th>
+                        <td>@j.disasterStartDate</td>
+                        <td>@j.disasterStartDate</td>
+                        <td>@j.disasterLocation</td>
+                        <td>@j.disasterDescription</td>
+                        <td>@j.goodsSelection</td>
+                        <td>@j.status</td>
+                    </tr>
+                    val++;
+                }
+                
+                <tr>
+                    <td colspan="7">Active Disaster</td>
+                    <td>@val</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+</body>
+</html>

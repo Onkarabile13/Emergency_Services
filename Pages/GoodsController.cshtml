@@ -1,0 +1,82 @@
+﻿@page
+@model Emergency_Services.Pages.GoodsControllerModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goods Page</title>
+
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 50%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+    
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Capture Goods</h1>
+    <hr>
+    <div class="row">
+        <a href="/CaptureGoodsRecords" class="btn btn-primary">Create New Goods</a>
+  
+    </div>
+    <br>
+        <div class="wrapper" style="background: aliceblue;">
+
+            <table class="table">
+                <caption>Goods Records</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Submitted-Date</th>
+                        <th scope="col">Goods-Name</th>
+                        <th scope="col">New Defined Goods</th>
+                        <th scope="col">Description Of Goods</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @{
+                    int val = 1;
+                }
+                @foreach(var j in Model.getGoods)
+                {
+                    <tr>
+                        <th scope="row">@j.Id</th>
+                        <td>@j.date</td>
+                        <td>@j.goodsSelection</td>
+                        <td>@j.otherGoods</td>
+                        <td>@j.goodDescription</td>
+                        <td>@j.status</td>
+                    </tr>
+                    val++;
+                }
+                <tr>
+                        <td colspan="2">Goods Total</td>
+                        <td>@val</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@page
+@model Emergency_Services.Pages.MoneyControllerModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Money Page</title>
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+        .wrapper {
+            width: 80%;
+            margin-left: 100px;
+        }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Money Records</h1>
+    <hr>
+    <div class="row">
+        <a href="/CaptureMoneyRecords" class="btn btn-primary">Create New Money</a>
+    </div>
+    <br>
+    <div class="wrapper" style="background: aliceblue;">
+        <table class="table">
+            <caption>List of Money Records</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Submitted-Date</th>
+                    <th scope="col">Total-Amount</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    double sum = 0.0;
+                }
+                @foreach(var get in Model.getMoney)
+                  {
+                    sum = sum + get.totalDonation;
+                    <tr>
+                        <th scope="row">@get.id</th>
+                        <td>@get.date</td>
+                        <td>R @get.totalDonation</td>
+                        <td>@get.status</td>
+                    </tr>
+                  }
+                <tr>
+                    <td colspan="2">Total</td>
+                    <td>R @sum.00</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+
+</body>
+</html>

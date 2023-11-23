@@ -1,0 +1,130 @@
+﻿@page
+@model Emergency_Services.Pages.ShowGoodsRecordsModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goods Page</title>
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 50%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Donate Goods</h1>
+    <hr>
+    <div class="row">
+        <a href="/GoodsController" class="btn btn-primary">Back</a>
+    </div>
+    <br>
+    @if (TempData["goods"] != null)
+    {
+        <script>alert('@TempData["goods"]');</script>
+    }
+    <div class="wrapper" style="background: aliceblue;">
+        <div class="inner">
+            <form method="POST">
+
+                <div class="input-group">
+                    <label for="date">Goods Handing Date&emsp;</label>
+                    <input type="date" class="form-control" name="date" id="date" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Item Number To Be Donated&emsp;</label>
+                    <input type="number" class="form-control" name="totalItem" id="totalItem" placeholder="1" max="100" min="1" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <div class="input-group">
+                        <label for="date">Goods To Be Handin&emsp;</label>
+                        <select class="form-control" name="goodsSelection" id="goodsSelection" required>
+                            <option value="non_perishable_food">Non-Perishable Food</option>
+                            <option value="bottled_water">Bottled Water</option>
+                            <option value="tents">Tents</option>
+                            <option value="blankets_sleeping_bags">Blankets and Sleeping Bags</option>
+                            <option value="first_aid_kits">First Aid Kits</option>
+                            <option value="flashlights_batteries">Flashlights and Batteries</option>
+                            <option value="baby_formula_diapers">Baby Formula and Diapers</option>
+                            <option value="pet_food">Pet Food</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="hygiene_supplies">Hygiene Supplies</option>
+                            <option value="solar_powered_chargers">Solar-Powered Chargers</option>
+                            <option value="identification_documents">Identification Documents</option>
+                            <option value="volunteer_support">Volunteer Support</option>
+                            <option value="rescue_equipment">Rescue Equipment</option>
+                            <option value="rope_rescue_gear">Rope and Rescue Gear</option>
+                            <option value="water_purification_tablets">Water Purification Tablets</option>
+                            <option value="medications">Medications</option>
+                            <option value="two_way_radios">Two-Way Radios</option>
+                            <option value="tools_debris_removal">Tools for Debris Removal</option>
+                            <option value="vehicles">Vehicles (ambulances, trucks)</option>
+                            <option value="boats">Boats for Flood-Affected Areas</option>
+                            <option value="warm_clothing">Warm Clothing</option>
+                            <option value="important_personal_items">Important Personal Items</option>
+                            <option value="childrens_clothing_toys">Children's Clothing and Toys</option>
+                            <option value="cash_donations">Cash Donations</option>
+                            <option value="fuel">Fuel</option>
+                            <option value="portable_generators">Portable Generators</option>
+                            <option value="toiletries">Toiletries</option>
+                            <option value="fire_extinguishers">Fire Extinguishers</option>
+                            <option value="communication">Communication</option>
+                            <option value="emotional_support">Emotional Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Other Goods&emsp;</label>
+                    <input type="text" class="form-control" name="otherGoods" id="otherGoods" placeholder="Hall">
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Goods Description&emsp;</label>
+                    <textarea class="form-control" name="goodDescription" id="goodDescription" rows="3"></textarea>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="status">I want to remain anonymous.&emsp;</label>
+                    <select class="form-control" name="status" id="status" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="reset">Reset</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

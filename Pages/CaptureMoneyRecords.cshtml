@@ -1,0 +1,80 @@
+﻿@page
+@model Emergency_Services.Pages.ShowMoneyRecordsModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Money Page</title>
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: 300px;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 50%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Donate Cash</h1>
+    <hr>
+        <div class="row">
+            <a href="/MoneyController" class="btn btn-primary">Back</a>
+        </div>
+    <br>
+    @if (TempData["money"] != null)
+    {
+        <script>alert('@TempData["money"]');</script>
+    }
+    <div class="wrapper" style="background: aliceblue;">
+        <div class="inner">
+
+            <form method="POST">
+
+                <div class="input-group">
+                    <label for="date">Date Donation&emsp;</label>
+                    <input type="date" class="form-control" name="date" id="date" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="date">Total Donation&emsp;</label>
+                    <input type="number" class="form-control" name="totalDonation" id="totalDonation" placeholder="400" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="status">I want to remain anonymous.&emsp;</label>
+                    <select class="form-control" name="status" id="status" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="reset">Reset</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

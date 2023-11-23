@@ -1,0 +1,98 @@
+﻿@page
+@model Emergency_Services.Pages.AuthHomeModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary Page</title>
+
+    <style>
+        .main-heading {
+            margin-left: 50px;
+        }
+
+        .wrapper {
+            width: 95%;
+            margin-left: 50px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: 70%;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Disaster Summary </h1>
+    <hr />
+    <h5 class="main-heading">
+        Available Balance: @if (TempData["available"] != null)
+        {
+            @TempData["available"]
+        }
+    </h5>
+    <hr>
+    <div class="row">
+        <a href="/ItemsPlay" class="btn btn-primary">All assigned items.</a>&emsp;&emsp; <a href="/AssignedTotal" class="btn btn-primary">All assigned money.</a>&emsp;&emsp;<a href="/Buy" class="btn btn-primary">Buy Good</a>
+    </div>
+    <br>
+        <div class="wrapper" style="background: aliceblue;">
+
+            <table class="table">
+                <caption>Disaster Records</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Submitted-Date</th>
+                        <th scope="col">End-Date</th>
+                        <th scope="col">Location-Name</th>
+                        <th scope="col">Disaster-Description</th>
+                        <th scope="col">Required Aid</th>
+                        <th scope="col">Status</th>
+                        <td>assign</td>
+                        <th scope="col">Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int val = 0;
+                    }
+                    @foreach (var j in Model.getGoods)
+                    {
+                        <tr>
+                            <th scope="row">@j.Id</th>
+                            <td>@j.disasterStartDate</td>
+                            <td>@j.disasterStartDate</td>
+                            <td>@j.disasterLocation</td>
+                            <td>@j.disasterDescription</td>
+                            <td>@j.goodsSelection</td>
+                            <td>@j.status</td>
+                            <td>
+                            <a href="/Item?itemId=@j.Id">items</a>
+                                <br>
+                            <a href="/Money?moneyId=@j.Id">money</a>
+                            </td>
+                        </tr>
+                        val++;
+                    }
+
+                    <tr>
+                        <td colspan="8">Active Disaster</td>
+                        <td>@val</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+</body>
+</html>

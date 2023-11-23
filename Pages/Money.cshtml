@@ -1,0 +1,65 @@
+﻿@page
+@model Emergency_Services.Pages.MoneyModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Page</title>
+    <style>
+        .main-heading {
+            margin-left: 100px;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin-left: 100px;
+            height: auto;
+            border-style: groove;
+        }
+
+            .wrapper .inner {
+                width: auto;
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+
+        .row {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1 class="main-heading">Assign Monetary</h1>
+    <hr>
+    <div class="row">
+        <a href="/AuthHome" class="btn btn-primary">Back</a>
+    </div>
+    <br>
+    @if (TempData["assignMoney"] != null)
+    {
+        <script>alert('@TempData["assignMoney"]');</script>
+    }
+    <div class="wrapper" style="background: aliceblue;">
+        <div class="inner">
+
+            <form method="POST">
+                <div class="input-group">
+                    <label for="date">Total to assign&emsp;</label>
+                    <input type="number" class="form-control" name="totalDonation" id="totalDonation" placeholder="400" required>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="reset">Reset</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-info" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
