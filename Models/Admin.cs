@@ -3,6 +3,6 @@
     public class Admin
     {
         public string email { get; set; }
-        public string psw { get; set; }
+        public string psw { get; set; } 
     }
 }
